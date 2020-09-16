@@ -1,30 +1,46 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Harmony;
+using Microsoft.Xna.Framework;
 using StardewModdingAPI;
-using StardewModdingAPI.Events;
+using StardewValley;
+using StardewValley.Buildings;
+using StardewValley.Locations;
+using StardewValley.Menus;
+using System;
+using xTile.Dimensions;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace BuildOnAnyTile
 {
-    public class ModEntry : Mod
+    public partial class ModEntry : Mod
     {
-        internal Config config;
-        internal ITranslationHelper i18n => Helper.Translation;
+        public static Mod Instance { get; set; } = null;
+        public static ModConfig Config { get; set; } = null;
 
         public override void Entry(IModHelper helper)
         {
-            string startingMessage = i18n.Get("template.start", new { mod = helper.ModRegistry.ModID, folder = helper.DirectoryPath });
-            Monitor.Log(startingMessage, LogLevel.Trace);
+            Instance = this; //provide a static reference to this mod's utilities
 
-            config = helper.ReadConfig<Config>();
+            try
+            {
+                Config = helper.ReadConfig<ModConfig>(); //try to load the config.json file
+            }
+            catch (Exception ex)
+            {
+                Monitor.Log($"Encountered an error while loading the config.json file. Default settings will be used instead. Full error message:\n-----\n{ex.ToString()}", LogLevel.Error);
+                Config = new ModConfig(); //use the default settings
+            }
 
-            helper.Events.Input.ButtonPressed += Input_ButtonPressed;
+            ApplyHarmonyPatches();
+            
+            Helper.Events.GameLoop.GameLaunched += EnableGMCM; //enable GMCM compatibility at launch
         }
 
-        private void Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        /// <summary>Applies any Harmony patches used by this mod.</summary>
+        private void ApplyHarmonyPatches()
         {
-            e.Button.TryGetKeyboard(out Keys keyPressed);
+            HarmonyInstance harmony = HarmonyInstance.Create(ModManifest.UniqueID); //create this mod's Harmony instance
 
-            if (keyPressed.Equals(config.debugKey))
-                Monitor.Log(i18n.Get("template.key"), LogLevel.Info);
+            HarmonyPatch_BuildOnAnyTile.ApplyPatch(harmony);
         }
     }
 }
