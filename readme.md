@@ -28,7 +28,7 @@ The available settings are:
 
 Name | Valid settings | Description
 -----|----------------|------------
-BuildOnAllTerrainFeatures | true, **false** | Enable this to place buildings on crops, trees, and similar objects. WARNING: Buildings will immediately delete those objects when placed over them!
+BuildOnAllTerrainFeatures | **false**, true | Enable this to place buildings on crops, trees, and similar objects. **WARNING:** Buildings will immediately delete those objects when placed over them.
 BuildOnOtherBuildings | **true**, false | Enable this to place buildings on tiles that already contain other buildings.
 BuildOnWater | **true**, false | Enable this to place buildings on water tiles.
 BuildOnImpassableTiles | **true**, false | Enable this to place buildings on impassable tiles, e.g. cliffs and other obstructions.
