@@ -39,6 +39,6 @@ BuildOnCaveAndShippingZones | **true**, false | Enable this to place buildings o
 
 Build On Any Tile supports translation of its Generic Mod Config Menu setting names and descriptions.
 
-When Stardew Valley is launched, a file with the appropriate language code is loaded from `BuildOnAnyTile/i18n`, or [`default.json`](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/default.json) if no specific translation exists. Note that the game must be restarted to update GMCM's displayed language.
+When Stardew Valley is launched, a file with the appropriate language code is loaded from the `BuildOnAnyTile/i18n` folder, or [`default.json`](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/default.json) if no specific translation exists. Note that the game must be restarted to update GMCM's displayed language.
 
 See the Stardew Valley wiki's [Modding:Translations](https://stardewvalleywiki.com/Modding:Translations) page for more information. Please feel free to submit translation files via pull request, linking the file in a GitHub issue, or any other method.
