@@ -6,5 +6,5 @@
   "UniqueID": "Esca.BuildOnAnyTile",
   "EntryDll": "BuildOnAnyTile.dll",
   "MinimumApiVersion": "2.11",
-  "UpdateKeys": [ "GitHub:Esca-MMC/BuildOnAnyTile" ]
+  "UpdateKeys": [ "GitHub:Esca-MMC/BuildOnAnyTile", "Nexus:6854", "ModDrop:827525" ]
 }
