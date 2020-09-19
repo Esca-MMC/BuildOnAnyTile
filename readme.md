@@ -5,7 +5,7 @@
 * [Installation](#installation)
 * [Options](#options)
 * [Translation](#translation)
-     * [Available Translations](#available-languages)
+     * [Available Translations](#available-translations)
 
 ## Installation
 1. **Install the latest version of [SMAPI](https://smapi.io/).**
