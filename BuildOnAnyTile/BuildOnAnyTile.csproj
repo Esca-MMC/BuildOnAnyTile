@@ -4,14 +4,14 @@
     <AssemblyName>BuildOnAnyTile</AssemblyName>
     <RootNamespace>BuildOnAnyTile</RootNamespace>
     <Version>1.0.0</Version>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net452</TargetFramework>
     <Platforms>AnyCPU</Platforms>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <EnableHarmony>true</EnableHarmony>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0-beta.20210916" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.3.0" />
   </ItemGroup>
 
   <ItemGroup>

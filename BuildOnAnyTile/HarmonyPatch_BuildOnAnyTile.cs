@@ -107,6 +107,20 @@ namespace BuildOnAnyTile
                     //NOTE: as of SDV 1.5.5, the static preset rectangle "zones" no longer exist, and farm maps use the tile property "Buildable" "f" instead;
                     //that tile property may exist elsewhere too, but checking relevant properties here should be understandable enough
 
+                    //try to get the cave and shipping no-build zones
+                    Rectangle? caveNoBuildRect = ModEntry.Instance.Helper.Reflection.GetField<Rectangle>(__instance, "caveNoBuildRect", false)?.GetValue();
+                    Rectangle? shippingAreaNoBuildRect = ModEntry.Instance.Helper.Reflection.GetField<Rectangle>(__instance, "shippingAreaNoBuildRect", false)?.GetValue();
+
+                    if (caveNoBuildRect.HasValue && shippingAreaNoBuildRect.HasValue) //if these fields exist (e.g. SDV v1.5.4 or earlier is in use)
+                    {
+                        if (caveNoBuildRect.Value.Contains(Utility.Vector2ToPoint(tileLocation)) //if this tile is within the cave entrance zone
+                        || shippingAreaNoBuildRect.Value.Contains(Utility.Vector2ToPoint(tileLocation))) //OR this tile is within the shipping bin zone
+                        {
+                            __result = false; //this tile is NOT buildable
+                            return false; //skip the original method
+                        }
+                    }
+
                     string buildableValue = __instance.doesTileHavePropertyNoNull((int)tileLocation.X, (int)tileLocation.Y, "Buildable", "Back"); //get the value of this tile's "Buildable" property ("" if null)
                     if (buildableValue.Equals("f", StringComparison.OrdinalIgnoreCase) || buildableValue.Equals("false", StringComparison.OrdinalIgnoreCase)) //if the value is false
                     {
