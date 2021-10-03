@@ -6,9 +6,16 @@ namespace BuildOnAnyTile
 {
     public partial class ModEntry : Mod
     {
+        /// <summary>True if the method <see cref="EnableGMCM"/> has already run. Does NOT indicate whether GMCM is available or this mod's menu was successfully enabled.</summary>
+        private static bool InitializedGMCM { get; set; } = false;
+
         // <summary>A SMAPI GameLaunched event that enables GMCM support if that mod is available.</summary>
-        public void EnableGMCM(object sender, GameLaunchedEventArgs e)
+        public void EnableGMCM(object sender, RenderedActiveMenuEventArgs e)
         {
+            if (InitializedGMCM)
+                return; //do nothing
+            InitializedGMCM = true; //don't run this more than once
+
             try
             {
                 GenericModConfigMenuAPI api = Helper.ModRegistry.GetApi<GenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu"); //attempt to get GMCM's API instance
