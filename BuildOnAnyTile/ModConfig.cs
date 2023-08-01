@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BuildOnAnyTile
+﻿namespace BuildOnAnyTile
 {
     /// <summary>A collection of this mod's config.json file settings.</summary>
     public class ModConfig

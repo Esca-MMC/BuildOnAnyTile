@@ -55,7 +55,7 @@ namespace BuildOnAnyTile
                             return false; //skip the original method
                         }
                     }
-                        
+
                 }
 
                 if (ModEntry.Config.BuildOnOtherBuildings == false) //if collision with other buildings should prevent building
