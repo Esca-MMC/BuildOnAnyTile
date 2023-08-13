@@ -50,5 +50,5 @@ Language | File | Contributor(s)
 ---------|------|------------
 English | [default.json](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/default.json) | [Esca-MMC](https://github.com/Esca-MMC)
 Brazilian Portuguese | [pt.json](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/pt.json) | [RoxasAlt](https://forums.nexusmods.com/index.php?/user/73534233-roxasalt/)
-Korean | [ko.json](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/zh.json) | [wally232](https://github.com/wally232)
+Korean | [ko.json](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/ko.json) | [wally232](https://github.com/wally232)
 Simplified Chinese | [zh.json](https://github.com/Esca-MMC/BuildOnAnyTile/blob/master/BuildOnAnyTile/i18n/zh.json) | [chasqiu](https://forums.nexusmods.com/index.php?/user/72860268-chasqiu/)
