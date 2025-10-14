@@ -60,7 +60,7 @@ namespace BuildOnAnyTile
                 {
                     foreach (Building building in __instance.buildings) //for each existing building
                     {
-                        if (building.isTileOccupiedForPlacement(tileLocation, null)) //if this building occupies this tile
+                        if (building.occupiesTile((int)tileLocation.X, (int)tileLocation.Y, true)) //if this building occupies this tile (or modifies its tile properties by proximity)
                             return; //this tile is NOT buildable
                     }
                 }
